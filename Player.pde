@@ -18,7 +18,7 @@ class Player
      pushMatrix();
      translate(playerPos.x,playerPos.y);
      rotate(theta);
-     rect(playerPos.x, playerPos.y, 50, 50);
+     rect(-25, -25, 50, 50);
      popMatrix();
    }
    
@@ -41,11 +41,11 @@ class Player
     }
     if (checkKey('a'))
     {
-      theta -= 0.1;
+      theta -= 0.04;
     }
     if (checkKey('d'))
     {
-      theta += 0.1;
+      theta += 0.04;
     }
    } 
 }

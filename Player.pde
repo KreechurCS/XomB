@@ -49,5 +49,11 @@ class Player
     {
       theta += 0.04;
     }
+    if (checkKey(' '))
+    {
+      PVector bp = PVector.add(playerPos, PVector.mult(accel, 40));
+      Bullet b = new Bullet(bp.x, bp.y, theta, 20, 5);
+      gameObjects.add(b);
+    }
    } 
 }

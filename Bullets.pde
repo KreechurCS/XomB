@@ -32,6 +32,27 @@ class Bullet extends GameObject
     accel.y = -cos(theta);
     
     pos.add(PVector.mult(PVector.mult(accel, speed), timeDelta));
+    if (pos.x > width)
+    {
+      pos.x = 0;
+    }
+    if (pos.x < 0)
+    {
+      pos.x = width;
+    }
+    if (pos.y > height)
+    {
+      pos.y = 0;
+    }
+    if (pos.y < 0)
+    {
+      pos.y = height;
+    }
+    alive += timeDelta;
+    if (alive > timeToLive)
+    {
+      gameObjects.remove(this);
+    }
   }
   
 }

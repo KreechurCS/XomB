@@ -19,6 +19,8 @@ class Player
      translate(playerPos.x,playerPos.y);
      rotate(theta);
      rect(-25, -25, 50, 50);
+     fill(0);
+     rect(0,-25,5,-15);
      popMatrix();
    }
    

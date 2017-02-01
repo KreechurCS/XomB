@@ -3,7 +3,10 @@ void setup()
   size(1280,720);
 }
 
+ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 boolean[] keys = new boolean[1000];
+
+float timeDelta = 1.0f / 60.0f;
 
 Player player1 = new Player(0);
 

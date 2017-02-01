@@ -1,4 +1,4 @@
-class Enemy
+class Enemy extends GameObject
 {
   Enemy()
   {
@@ -6,6 +6,16 @@ class Enemy
   }
   
   void huntPlayer()
+  {
+    
+  }
+  
+  void render()
+  {
+    
+  }
+  
+  void update()
   {
     
   }

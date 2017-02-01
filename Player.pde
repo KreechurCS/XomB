@@ -2,13 +2,17 @@ class Player
 {
    PVector playerPos;
    PVector accel;
+   PVector velocity;
    int PlayerSpawnX = width/2,PlayerSpawnY = height/2;
    float theta;
+   float mass = 1;
+   
    Player(float theta)
    {
      playerPos = new PVector(PlayerSpawnX,PlayerSpawnY);
      accel = new PVector(PlayerSpawnX,PlayerSpawnY);
      this.theta = theta;
+     velocity = new PVector(0,0);
    }
    
    void render()
@@ -24,9 +28,36 @@ class Player
      popMatrix();
    }
    
+   PVector force;
+   float power = 100;
+   
+   float fireRate = 2;
+   float toPass = 1.0/ fireRate;
+   float elapsed = toPass;
+   
    void update()
    {
      controls();
+     
+   /*  accel = PVector.div(force, mass);
+    velocity.add(PVector.mult(accel, timeDelta));
+    playerPos.add(PVector.mult(velocity, timeDelta));
+    force.x = force.y = 0;
+    velocity.mult(0.99f);
+    elapsed += timeDelta;
+    */
+    for(int i = 0 ; i < gameObjects.size() ; i ++)
+    {
+      GameObject go = gameObjects.get(i);
+      if (go instanceof Bullet)
+      {
+        Bullet b = (Bullet) go;
+        if (dist(go.pos.x, go.pos.y, this.playerPos.x, this.playerPos.y) < 30)
+        {
+          gameObjects.remove(b);
+        }
+      }
+    }
    }
    
    void controls()

@@ -22,7 +22,7 @@ class Bullet extends GameObject
     translate(pos.x, pos.y);
     rotate(theta);
     stroke(255);
-    line(0, -size/2, 0, size/2);
+    ellipse(0, 0, size/2, size/2);
     popMatrix();
   }
   
@@ -34,25 +34,24 @@ class Bullet extends GameObject
     pos.add(PVector.mult(PVector.mult(accel, speed), timeDelta));
     if (pos.x > width)
     {
-      pos.x = 0;
+      gameObjects.remove(this);
     }
     if (pos.x < 0)
     {
-      pos.x = width;
+      gameObjects.remove(this);
     }
     if (pos.y > height)
     {
-      pos.y = 0;
+      gameObjects.remove(this);
     }
     if (pos.y < 0)
     {
-      pos.y = height;
-    }
-    alive += timeDelta;
-    if (alive > timeToLive)
-    {
       gameObjects.remove(this);
     }
-  }
-  
+    alive += timeDelta;
+    /*if (alive > timeToLive)
+    {
+      gameObjects.remove(this);
+    }*/
+  } 
 }

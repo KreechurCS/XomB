@@ -39,13 +39,6 @@ class Player
    {
      controls();
      
-   /*  accel = PVector.div(force, mass);
-    velocity.add(PVector.mult(accel, timeDelta));
-    playerPos.add(PVector.mult(velocity, timeDelta));
-    force.x = force.y = 0;
-    velocity.mult(0.99f);
-    elapsed += timeDelta;
-    */
     for(int i = 0 ; i < gameObjects.size() ; i ++)
     {
       GameObject go = gameObjects.get(i);

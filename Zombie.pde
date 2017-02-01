@@ -1,4 +1,0 @@
-class Zombie extends Enemy
-{
-  
-}

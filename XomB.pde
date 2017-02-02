@@ -58,7 +58,7 @@ void draw()
     spawnEnemy();
   }
   
-  for (int i = gameObjects.size() -1 ; i >= 0  ; i --)
+  for (int i = 0 ; i < gameObjects.size();  i ++)
   {
     GameObject go = gameObjects.get(i); 
     go.update();

@@ -1,7 +1,7 @@
 class Enemy extends GameObject
 {
   float theta;
-  float health;
+  float health = 2;
   float speed = 0.8;
   Enemy(int spawnX, int spawnY)
   {
@@ -39,6 +39,27 @@ class Enemy extends GameObject
     pos.add(PVector.mult(accel, speed));
   }
   
+  void hit()
+  {
+    for(int i = 0 ; i < gameObjects.size() ; i ++)
+    {
+      GameObject go = gameObjects.get(i);
+      if (go instanceof Bullet)
+      {
+        Bullet b = (Bullet) go;
+        if (dist(go.pos.x, go.pos.y, this.pos.x, this.pos.y) < 25)
+        {
+          health --;
+          gameObjects.remove(b);
+        }
+      }
+    }
+    if (health <= 0)
+      {
+        gameObjects.remove(this);
+      }
+  }
+  
   void render()
   {
     pushMatrix();
@@ -54,5 +75,6 @@ class Enemy extends GameObject
   void update()
   {
     huntPlayer();
+    hit();
   }
 }

@@ -68,11 +68,11 @@ class Player
     }
     if (checkKey('a'))
     {
-      theta -= 0.04;
+      theta -= 0.06;
     }
     if (checkKey('d'))
     {
-      theta += 0.04;
+      theta += 0.06;
     }
     if (checkKey(' '))
     {

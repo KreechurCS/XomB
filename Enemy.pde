@@ -2,7 +2,7 @@ class Enemy extends GameObject
 {
   float theta;
   float health;
-  float speed;
+  float speed = 0.8;
   Enemy(int spawnX, int spawnY)
   {
     pos = new PVector(spawnX, spawnY);
@@ -12,6 +12,7 @@ class Enemy extends GameObject
   
   void huntPlayer()
   {
+    /*
     accel.x = sin(theta);
      accel.y = -cos(theta);
     if (playerPos.y < pos.y)
@@ -31,15 +32,22 @@ class Enemy extends GameObject
     {
       if(frameCount % 60 == 0)
       theta -= 0.4;
-    }
-    
+    }*/
+    theta = atan2(playerPos.y - pos.y, playerPos.x - pos.x) + HALF_PI;
+    accel = new PVector(sin(theta), - cos(theta));
+    accel.normalize();
+    pos.add(PVector.mult(accel, speed));
   }
   
   void render()
   {
+    pushMatrix();
+    translate(pos.x, pos.y);
+    rotate(theta);
     fill(0,255,0);
     strokeWeight(1);
-    rect(pos.x,pos.y, 50, 50);
+    rect(-25,-25, 50, 50);
+    popMatrix();
     
   }
   

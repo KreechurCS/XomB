@@ -1,6 +1,7 @@
+PVector playerPos;
+
 class Player
 {
-   PVector playerPos;
    PVector accel;
    PVector velocity;
    int PlayerSpawnX = width/2,PlayerSpawnY = height/2;
@@ -9,8 +10,8 @@ class Player
    
    Player(float theta)
    {
-     playerPos = new PVector(PlayerSpawnX,PlayerSpawnY);
      accel = new PVector(PlayerSpawnX,PlayerSpawnY);
+     playerPos = new PVector(PlayerSpawnX,PlayerSpawnY);
      this.theta = theta;
      velocity = new PVector(0,0);
    }
@@ -45,7 +46,7 @@ class Player
       if (go instanceof Bullet)
       {
         Bullet b = (Bullet) go;
-        if (dist(go.pos.x, go.pos.y, this.playerPos.x, this.playerPos.y) < 30)
+        if (dist(go.pos.x, go.pos.y, playerPos.x, playerPos.y) < 30)
         {
           gameObjects.remove(b);
         }

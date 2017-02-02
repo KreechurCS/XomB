@@ -3,9 +3,9 @@ class Enemy extends GameObject
   float theta;
   float health;
   float speed;
-  Enemy(float playerX,float playerY)
+  Enemy(int spawnX, int spawnY)
   {
-    pos = new PVector(width/2, height/2);
+    pos = new PVector(spawnX, spawnY);
     accel = new PVector(width/2, height/2);
     this.theta = theta;
   }
@@ -19,6 +19,7 @@ class Enemy extends GameObject
   {
     fill(0,255,0);
     strokeWeight(1);
+    rect(pos.x,pos.y, 50, 50);
     
   }
   

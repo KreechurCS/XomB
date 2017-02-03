@@ -49,10 +49,5 @@ class Bullet extends GameObject
     {
       gameObjects.remove(this);
     }
-    alive += timeDelta;
-    /*if (alive > timeToLive)
-    {
-      gameObjects.remove(this);
-    }*/
   } 
 }

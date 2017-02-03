@@ -10,6 +10,7 @@ boolean[] keys = new boolean[1000];
 float timeDelta = 1.0f / 60.0f;
 int enemies = 1;
 int i = 0;
+int score = 0;
 
 Player player1 = new Player(0);
 
@@ -47,6 +48,8 @@ void draw()
   stroke(0);
   strokeWeight(4);
   rect(0,0, width, height);
+  fill(0);
+  text("Score: " + score, width - 100, 30);
   
 
   player1.render();
@@ -64,4 +67,5 @@ void draw()
     go.update();
     go.render();    
   }
+  println(score);
 }

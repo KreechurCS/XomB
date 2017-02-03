@@ -56,6 +56,7 @@ class Enemy extends GameObject
     }
     if (health <= 0)
       {
+        score++;
         gameObjects.remove(this);
       }
   }

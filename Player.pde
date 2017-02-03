@@ -7,6 +7,8 @@ class Player
    int PlayerSpawnX = width/2,PlayerSpawnY = height/2;
    float theta;
    float mass = 1;
+   int firerate =30;
+   int fired = 0;
    
    Player(float theta)
    {

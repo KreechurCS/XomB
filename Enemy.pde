@@ -67,6 +67,7 @@ class Enemy extends GameObject
     rotate(theta);
     fill(0,255,0);
     strokeWeight(1);
+    stroke(0);
     rect(-25,-25, 50, 50);
     popMatrix();
     

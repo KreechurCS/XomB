@@ -6,13 +6,12 @@ class Bullet extends GameObject
   float timeToLive;
   float alive;
   
-  Bullet(float x, float y, float theta, float size, float timetoLive)
+  Bullet(float x, float y, float theta, float size)
   {
     pos = new PVector(x, y);
     accel = new PVector(0, 1);
     this.theta = theta;
     this.size = size;
-    this.timeToLive = timeToLive;
     this.alive = 0;
   }
   

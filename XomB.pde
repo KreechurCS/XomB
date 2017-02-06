@@ -1,11 +1,3 @@
-//I AM SO SUICIDAL PLEASE LET ME KILL MYSELF AFTER THIS
-//WAKE ME UP INSIDE, WAKE ME UP INSIDE, SAAAAVVVEEEE MEEEEEE
-//CANT WAKE UP, WAKE ME UP INSIDE, WAKE ME UP INSIDE
-//CRAWLING IN MY CRAWL
-//COME OUT YE BLACK AND TANS COME OUT AND FIGHT ME LIKE A MAN
-//SHOW YOUR WIFE HOW YOU WON MEDALS DOWN IN FLANDERS
-//TELL EM HOW THE IRA MADE YOU RUN LIKE HELL AWAY FROM THE GREEN AND LOVING LAKES OF KILLISHAMBLE
-
 void setup()
 {
   size(1280, 720);
@@ -19,6 +11,10 @@ void setup()
 
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 boolean[] keys = new boolean[1000];
+
+button start = new button(490, 300, 1, "Start");
+button upgrade = new button(490, 400, 2, "Upgrade");
+button exit = new button(490, 500, 3, "Exit");
 
 float timeDelta = 1.0f / 60.0f;
 int enemies = 1;
@@ -61,7 +57,9 @@ void menu()
   textSize(100);
   fill(0);
   text("Xom-B", width/2, 200);
-  button("Start", width/2 - 150, 300);
+  button();
+  /*button("Start", width/2 - 150, 300);
+  
   if (mouseX > width/2-130 && mouseY > 300 && mouseX < width/2 + 230 && mouseY <350)
   {
     if (mousePressed)
@@ -84,25 +82,17 @@ void menu()
     {
       gameState = 3;
     }
-  }
+  }*/
 }
 
-void button(String name, int buttonX, int buttonY)
+void button()
 {
-  if (mouseX > width/2-130 && mouseY > 300 && mouseX < width/2 + 230 && mouseY <350)
-  {
-     fill(255,0,0,100);
-  }
-  else
-  {
-    fill(0, 0, 0, 0);
-  }
-  stroke(255, 0, 0);
-  strokeWeight(3);
-  rect(buttonX, buttonY, 300, 50);
-  fill(0);
-  textSize(50);
-  text(name, width/2, buttonY + 45);
+  start.update();
+  start.render();
+  upgrade.update();
+  upgrade.render();
+  exit.update();
+  exit.render();
 }
 
 void draw()

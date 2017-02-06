@@ -79,7 +79,7 @@ class Player
     if (checkKey(' '))
     {
       PVector bp = PVector.add(playerPos, PVector.mult(accel, 40));
-      Bullet b = new Bullet(bp.x, bp.y, theta, 20, 5);
+      Bullet b = new Bullet(bp.x, bp.y, theta, 20);
       gameObjects.add(b);
     }
    } 

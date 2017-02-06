@@ -34,7 +34,7 @@ class button
   
   void update()
   {
-    if (mouseX > width/2-130 && mouseY > 300 && mouseX < width/2 + 230 && mouseY <350)
+    if (mouseX > buttonX && mouseY > buttonY && mouseX < buttonX + 300 && mouseY < buttonY + 50)
     {
       if (mousePressed)
       {

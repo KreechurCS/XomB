@@ -1,4 +1,5 @@
 PVector playerPos;
+int playerHealth = 100;
 
 class Player
 {

@@ -37,6 +37,10 @@ class Enemy extends GameObject
     accel = new PVector(sin(theta), - cos(theta));
     accel.normalize();
     pos.add(PVector.mult(accel, speed));
+    if (dist(playerPos.x, playerPos.y, this.pos.x, this.pos.y) < 50)
+    {
+      playerHealth--;
+    }
   }
   
   void hit()

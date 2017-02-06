@@ -97,6 +97,12 @@ void button()
 
 void draw()
 {
+  println("player:" + playerHealth);
+  if (playerHealth <= 0)
+  {
+    gameState = 0;
+    playerHealth = 100;
+  }
   if (gameState == 0)
   {
     menu();

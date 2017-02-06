@@ -4,7 +4,7 @@ class Speedy extends Enemy
   {
     pos = new PVector(spawnX, spawnY);
     accel = new PVector(spawnX, spawnY);
-    this.speed = 0.95;
+    this.speed = 0.9;
     this.health = 1;
   }
   

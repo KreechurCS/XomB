@@ -5,7 +5,7 @@ class Heavy extends Enemy
     pos = new PVector(spawnX, spawnY);
     accel = new PVector(spawnX, spawnY);
     this.speed = 0.5;
-    this.health = 5;
+    this.health = 4;
   }
   
   void render()

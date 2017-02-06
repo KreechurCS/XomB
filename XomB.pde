@@ -47,7 +47,7 @@ boolean checkKey(int k)
 void spawnEnemy()
 {
 
-  Enemy enemy = new Enemy((int)random(width), (int)random(height));
+  Zombie enemy = new Zombie((int)random(width), (int)random(height));
   gameObjects.add(enemy);
 }
 

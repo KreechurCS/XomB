@@ -1,14 +1,14 @@
 class Enemy extends GameObject
 {
   float theta;
-  float health = 2;
-  float speed = 0.8;
-  Enemy(int spawnX, int spawnY)
+  float health;;
+  float speed;
+  /*Enemy()
   {
     pos = new PVector(spawnX, spawnY);
     accel = new PVector(spawnX, spawnY);
     this.theta = theta;
-  }
+  }*/
   
   void huntPlayer()
   {
@@ -67,6 +67,7 @@ class Enemy extends GameObject
   
   void render()
   {
+    /*
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(theta);
@@ -75,7 +76,7 @@ class Enemy extends GameObject
     stroke(0);
     rect(-25,-25, 50, 50);
     popMatrix();
-    
+    */
   }
   
   void update()

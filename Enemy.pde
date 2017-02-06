@@ -39,7 +39,7 @@ class Enemy extends GameObject
     pos.add(PVector.mult(accel, speed));
     if (dist(playerPos.x, playerPos.y, this.pos.x, this.pos.y) < 50)
     {
-      playerHealth -= 0.5;
+      playerHealth -= 0.25;
     }
   }
   
@@ -58,9 +58,10 @@ class Enemy extends GameObject
         }
       }
     }
-    if (health <= 0)
+    if (health < 1)
       {
         score++;
+        ammo = ammo + 4;
         gameObjects.remove(this);
       }
   }

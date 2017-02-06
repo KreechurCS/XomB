@@ -15,6 +15,7 @@ boolean[] keys = new boolean[1000];
 button start = new button(490, 300, 1, "Start");
 button upgrade = new button(490, 400, 2, "Upgrade");
 button exit = new button(490, 500, 3, "Exit");
+UI UI = new UI();
 
 float timeDelta = 1.0f / 60.0f;
 int enemies = 1;
@@ -23,6 +24,7 @@ int score = 0;
 int gameState = 0;
 boolean boss_spawned = false;
 int previousScore;
+int ammo = 100;
 
 
 Player player1 = new Player(0);
@@ -138,22 +140,20 @@ void draw()
   if (gameState == 0)
   {
     menu();
-  } else if (gameState == 1)
-  
+  } 
+  else if (gameState == 1)
   {
     background(230);
     fill(0, 0, 0, 0);
     stroke(0);
     strokeWeight(4);
     rect(0, 0, width, height);
-    fill(0);
-    textSize(10);
-    text("Score: " + score, width - 100, 30);
-
 
     player1.render();
     player1.controls();
     player1.update();
+    UI.render();
+    UI.update();
 
     if (frameCount % 120 == 0)
     {

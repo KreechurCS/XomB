@@ -7,7 +7,6 @@ class Player
    PVector velocity;
    int PlayerSpawnX = 600,PlayerSpawnY = 400;
    float theta;
-   float mass = 1;
    
    Player(float theta)
    {
@@ -39,19 +38,6 @@ class Player
    void update()
    {
      controls();
-     
-    for(int i = 0 ; i < gameObjects.size() ; i ++)
-    {
-      GameObject go = gameObjects.get(i);
-      if (go instanceof Bullet)
-      {
-        Bullet b = (Bullet) go;
-        if (dist(go.pos.x, go.pos.y, playerPos.x, playerPos.y) < 30)
-        {
-          gameObjects.remove(b);
-        }
-      }
-    }
    }
    
    void controls()
@@ -74,12 +60,13 @@ class Player
     {
       theta += 0.06;
     }
-    if (checkKey(' ') && elapsed > toPass)
+    if (checkKey(' ') && elapsed > toPass && ammo > 0)
     {
       PVector bp = PVector.add(playerPos, PVector.mult(accel, 40));
       Bullet b = new Bullet(bp.x, bp.y, theta, 20);
       gameObjects.add(b);
       elapsed = 0;
+      ammo--;
     }
     elapsed += timeDelta;
    } 

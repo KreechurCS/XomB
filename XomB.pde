@@ -21,6 +21,7 @@ int enemies = 1;
 int i = 0;
 int score = 0;
 int gameState = 0;
+boolean boss_spawned = false;
 
 
 Player player1 = new Player(0);
@@ -48,11 +49,23 @@ void spawnEnemy()
 {
 
   Zombie enemy = new Zombie((int)random(width), (int)random(height));
-  Speedy enemyfast = new Speedy((int)random(width), (int)random(height));
-  Heavy enemyHeavy = new Heavy((int)random(width), (int)random(height));
   gameObjects.add(enemy);
-  gameObjects.add(enemyfast);
-  gameObjects.add(enemyHeavy);
+  if ((int)random(1, 4) == 1 && score > 24)
+  {
+    Speedy enemyfast = new Speedy((int)random(width), (int)random(height));
+    gameObjects.add(enemyfast);
+  }
+  if ((int)random(1,4) == 1 && score > 49)
+  {
+     Heavy enemyHeavy = new Heavy((int)random(width), (int)random(height));
+     gameObjects.add(enemyHeavy);
+  }
+  if (score > 99 && boss_spawned == false)
+  {
+    Boss boss = new Boss(600, 400);
+    boss_spawned = true;
+    gameObjects.add(boss);
+  }
 }
 
 void menu()

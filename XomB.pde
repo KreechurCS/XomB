@@ -1,10 +1,12 @@
 void setup()
 {
-  size(1280,720);
+  size(1280, 720);
   frameRate(60);
   PFont game;
   game = loadFont("ARDARLING.vlw");
   textFont(game);
+  textAlign(CENTER);
+  smooth();
 }
 
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
@@ -23,27 +25,26 @@ void keyPressed()
 { 
   keys[keyCode] = true;
 }
- 
+
 void keyReleased()
 {
-  keys[keyCode] = false; 
+  keys[keyCode] = false;
 }
 
 boolean checkKey(int k)
 {
   if (keys.length >= k) 
   {
-    return keys[k] || keys[Character.toUpperCase(k)];  
+    return keys[k] || keys[Character.toUpperCase(k)];
   }
   return false;
 }
 
 void spawnEnemy()
 {
-  
-    Enemy enemy = new Enemy((int)random(width),(int)random(height));
-    gameObjects.add(enemy);
-  
+
+  Enemy enemy = new Enemy((int)random(width), (int)random(height));
+  gameObjects.add(enemy);
 }
 
 void menu()
@@ -51,20 +52,49 @@ void menu()
   background(255);
   textSize(100);
   fill(0);
-  text("Xom-B", width/2 - 130, 200);
-  button("Start", width/2 - 130,300);
-  
+  text("Xom-B", width/2, 200);
+  button("Start", width/2 - 150, 300);
+  if (mouseX > width/2-130 && mouseY > 300 && mouseX < width/2 + 230 && mouseY <350)
+  {
+    if (mousePressed)
+    {
+      gameState = 1;
+    }
+  }
+  button("Upgrade", width/2 - 150, 400);
+  if (mouseX > width/2-130 && mouseY > 300 && mouseX < width/2 + 230 && mouseY <350)
+  {
+    if (mousePressed)
+    {
+      gameState = 1;
+    }
+  }
+  button("Exit", width/2 - 150, 500);
+  if (mouseX > width/2-130 && mouseY > 500 && mouseX < width/2 + 230 && mouseY <550)
+  {
+    if (mousePressed)
+    {
+      gameState = 3;
+    }
+  }
 }
 
 void button(String name, int buttonX, int buttonY)
 {
-  fill(0,0,0,0);
-  stroke(255,0,0);
+  if (mouseX > width/2-130 && mouseY > 300 && mouseX < width/2 + 230 && mouseY <350)
+  {
+     fill(255,0,0,100);
+  }
+  else
+  {
+    fill(0, 0, 0, 0);
+  }
+  stroke(255, 0, 0);
   strokeWeight(3);
-  rect(buttonX, buttonY, 300,50);
+  rect(buttonX, buttonY, 300, 50);
   fill(0);
   textSize(50);
-  text(name, buttonX + 90, buttonY + 45);
+  text(name, width/2, buttonY + 45);
 }
 
 void draw()
@@ -72,37 +102,36 @@ void draw()
   if (gameState == 0)
   {
     menu();
-  }
-  else if (gameState == 1)
+  } else if (gameState == 1)
+  
   {
     background(230);
-    fill(0,0,0,0);
+    fill(0, 0, 0, 0);
     stroke(0);
     strokeWeight(4);
-    rect(0,0, width, height);
+    rect(0, 0, width, height);
     fill(0);
     textSize(10);
     text("Score: " + score, width - 100, 30);
-  
+
 
     player1.render();
     player1.controls();
     player1.update();
-  
-    if(frameCount % 120 == 0)
+
+    if (frameCount % 120 == 0)
     {
       spawnEnemy();
     }
-  
-    for (int i = 0 ; i < gameObjects.size();  i ++)
+
+    for (int i = 0; i < gameObjects.size(); i ++)
     {
       GameObject go = gameObjects.get(i); 
       go.update();
-      go.render();    
+      go.render();
     }
-      println(score);
-  }
-  else if(gameState == 2)
+    println(score);
+  } else if (gameState == 3)
   {
     exit();
   }

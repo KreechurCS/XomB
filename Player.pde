@@ -1,5 +1,5 @@
 PVector playerPos;
-int playerHealth = 100;
+float playerHealth = 100;
 
 class Player
 {

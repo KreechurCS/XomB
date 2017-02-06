@@ -1,7 +1,7 @@
 class Enemy extends GameObject
 {
   float theta;
-  float health;;
+  float health;
   float speed;
   /*Enemy()
   {
@@ -39,7 +39,7 @@ class Enemy extends GameObject
     pos.add(PVector.mult(accel, speed));
     if (dist(playerPos.x, playerPos.y, this.pos.x, this.pos.y) < 50)
     {
-      playerHealth--;
+      playerHealth -= 0.5;
     }
   }
   

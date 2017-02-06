@@ -34,6 +34,7 @@ int gameState = 0;
 boolean boss_spawned = false;
 int previousScore;
 int ammo = 100;
+int totalXP;
 
 
 Player player1 = new Player(0);
@@ -145,6 +146,7 @@ void draw()
     gameState = 0;
     playerHealth = 100;
     reset();
+    totalXP = totalXP + xp;
   }
   if (gameState == 0)
   {

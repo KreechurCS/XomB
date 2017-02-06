@@ -1,11 +1,11 @@
-class Zombie extends Enemy
+class Speedy extends Enemy
 {
-  Zombie(int spawnX, int spawnY)
+  Speedy(int spawnX, int spawnY)
   {
     pos = new PVector(spawnX, spawnY);
     accel = new PVector(spawnX, spawnY);
-    this.speed = 0.7;
-    this.health = 2;
+    this.speed = 0.95;
+    this.health = 1;
   }
   
   void render()
@@ -14,7 +14,7 @@ class Zombie extends Enemy
     update();
     translate(pos.x, pos.y);
     rotate(theta);
-    fill(0,255,0);
+    fill(100);
     strokeWeight(1);
     stroke(0);
     rect(-25,-25, 50, 50);

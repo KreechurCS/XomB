@@ -48,7 +48,11 @@ void spawnEnemy()
 {
 
   Zombie enemy = new Zombie((int)random(width), (int)random(height));
+  Speedy enemyfast = new Speedy((int)random(width), (int)random(height));
+  Heavy enemyHeavy = new Heavy((int)random(width), (int)random(height));
   gameObjects.add(enemy);
+  gameObjects.add(enemyfast);
+  gameObjects.add(enemyHeavy);
 }
 
 void menu()

@@ -5,11 +5,9 @@ class Player
 {
    PVector accel;
    PVector velocity;
-   int PlayerSpawnX = width/2,PlayerSpawnY = height/2;
+   int PlayerSpawnX = 600,PlayerSpawnY = 400;
    float theta;
    float mass = 1;
-   int firerate =30;
-   int fired = 0;
    
    Player(float theta)
    {
@@ -32,8 +30,7 @@ class Player
      popMatrix();
    }
    
-   PVector force;
-   float power = 100;
+   
    
    float fireRate = 2;
    float toPass = 1.0/ fireRate;
@@ -77,11 +74,13 @@ class Player
     {
       theta += 0.06;
     }
-    if (checkKey(' '))
+    if (checkKey(' ') && elapsed > toPass)
     {
       PVector bp = PVector.add(playerPos, PVector.mult(accel, 40));
       Bullet b = new Bullet(bp.x, bp.y, theta, 20);
       gameObjects.add(b);
+      elapsed = 0;
     }
+    elapsed += timeDelta;
    } 
 }

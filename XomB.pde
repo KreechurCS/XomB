@@ -22,6 +22,7 @@ int i = 0;
 int score = 0;
 int gameState = 0;
 boolean boss_spawned = false;
+int previousScore;
 
 
 Player player1 = new Player(0);
@@ -112,6 +113,19 @@ void button()
   exit.render();
 }
 
+void reset()
+{
+  for (int i = gameObjects.size() - 1; i >= 0; i--) 
+  {
+    GameObject go = gameObjects.get(i);
+    gameObjects.remove(i);
+    previousScore = score;
+    score = 0;
+    playerPos.x = 600;
+    playerPos.y = 400;
+  }
+}
+
 void draw()
 {
   println("player:" + playerHealth);
@@ -119,6 +133,7 @@ void draw()
   {
     gameState = 0;
     playerHealth = 100;
+    reset();
   }
   if (gameState == 0)
   {

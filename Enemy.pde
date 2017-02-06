@@ -63,6 +63,10 @@ class Enemy extends GameObject
         score++;
         ammo = ammo + 4;
         gameObjects.remove(this);
+        if(score % 10 == 0)
+        {
+          xp++;
+        }
       }
   }
   

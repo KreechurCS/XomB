@@ -7,6 +7,14 @@ void setup()
   textFont(game);
   textAlign(CENTER);
   smooth();
+  table = loadTable("upgrades.csv", "header");
+  for(TableRow row : table.rows())
+    {
+      ammoLevel = row.getInt("ammo");
+      damageLevel = row.getInt("damage");
+      fireRateLevel = row.getInt("firerate");
+      xp = row.getInt("experience");
+    }
 }
 
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
@@ -16,6 +24,7 @@ button start = new button(490, 300, 1, "Start");
 button upgrade = new button(490, 400, 2, "Upgrade");
 button exit = new button(490, 500, 3, "Exit");
 UI UI = new UI();
+Upgrade upgradeMenu = new Upgrade();
 
 float timeDelta = 1.0f / 60.0f;
 int enemies = 1;
@@ -154,6 +163,7 @@ void draw()
     player1.update();
     UI.render();
     UI.update();
+    
 
     if (frameCount % 120 == 0)
     {
@@ -167,8 +177,16 @@ void draw()
       go.render();
     }
     println(score);
-  } else if (gameState == 3)
+  } 
+  else if(gameState == 2)
+  {
+    upgradeMenu.render();
+    upgradeMenu.update();
+  }
+  
+  else if (gameState == 3)
   {
     exit();
   }
+  println(xp);
 }

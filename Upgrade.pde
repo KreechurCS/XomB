@@ -1,13 +1,13 @@
 Table table;
 int ammoLevel = 0;
 int damageLevel = 0;
-int fireRateLevel = 0;
+int healthLevel = 0;
 int xp = 0;
 class Upgrade
 {
     UpgradeButton upgradeAmmo = new UpgradeButton(440, 300, 1, "Upgrade Ammo");
     UpgradeButton upgradeDamage = new UpgradeButton(440, 400, 2, "Upgrade Damage");
-    UpgradeButton upgradeFirerate = new UpgradeButton(440, 500, 3, "Upgrade Firerate");
+    UpgradeButton upgradeHealth = new UpgradeButton(440, 500, 3, "Upgrade Health");
     button returning = new button(490, 600, 0, "Main Menu");
   Upgrade()
   {
@@ -25,10 +25,10 @@ class Upgrade
     textSize(40);
     upgradeAmmo.render();
     upgradeDamage.render();
-    upgradeFirerate.render();
+    upgradeHealth.render();
     upgradeAmmo.update();
     upgradeDamage.update();
-    upgradeFirerate.update();
+    upgradeHealth.update();
     returning.render();
     returning.update();
     textSize(100);

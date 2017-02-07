@@ -12,7 +12,7 @@ void setup()
     {
       ammoLevel = row.getInt("ammo");
       damageLevel = row.getInt("damage");
-      fireRateLevel = row.getInt("firerate");
+      healthLevel = row.getInt("firerate");
       totalXP = row.getInt("experience");
     }
 }
@@ -33,7 +33,7 @@ int score = 0;
 int gameState = 0;
 boolean boss_spawned = false;
 int previousScore;
-int ammo = 100;
+int ammo;
 int totalXP;
 
 
@@ -151,6 +151,8 @@ void draw()
   if (gameState == 0)
   {
     menu();
+    ammo = 100 + (25 * ammoLevel);
+    playerHealth = 100 +(25 * healthLevel);
   } 
   else if (gameState == 1)
   {
@@ -190,7 +192,7 @@ void draw()
   {
     table.setInt(0, 0, ammoLevel);
     table.setInt(0, 1, damageLevel);
-    table.setInt(0, 2, fireRateLevel);
+    table.setInt(0, 2, healthLevel);
     table.setInt(0, 3, totalXP);
     saveTable(table, "data/upgrades.csv");
     exit();

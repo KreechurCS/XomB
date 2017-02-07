@@ -8,6 +8,7 @@ class Player
    int PlayerSpawnX = 600,PlayerSpawnY = 400;
    float theta;
    
+   
    Player(float theta)
    {
      accel = new PVector(PlayerSpawnX,PlayerSpawnY);
@@ -38,6 +39,7 @@ class Player
    void update()
    {
      controls();
+     
    }
    
    void controls()

@@ -14,10 +14,12 @@ class Boss extends Enemy
     update();
     translate(pos.x, pos.y);
     rotate(theta);
-    fill(100);
+    fill(#0EFF03);
     strokeWeight(1);
     stroke(0);
     rect(-25,-25, 100, 100);
+    rect(20,-25,10,-25);
+    rect(-20,-25,-10,-25);
     popMatrix();
     
   }

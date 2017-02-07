@@ -14,10 +14,12 @@ class Heavy extends Enemy
     update();
     translate(pos.x, pos.y);
     rotate(theta);
-    fill(50);
+    fill(#21741D);
     strokeWeight(1);
     stroke(0);
     rect(-25,-25, 50, 50);
+    rect(10,-25,10,-15);
+    rect(-10,-25,-10,-15);
     popMatrix();
     
   }

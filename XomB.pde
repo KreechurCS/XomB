@@ -74,7 +74,7 @@ void spawnEnemy()
      Heavy enemyHeavy = new Heavy((int)random(width), (int)random(height));
      gameObjects.add(enemyHeavy);
   }
-  if (score > 99 && boss_spawned == false)
+  if (score == 100 && boss_spawned == false)
   {
     Boss boss = new Boss(600, 400);
     boss_spawned = true;
@@ -136,6 +136,7 @@ void reset()
     score = 0;
     playerPos.x = 600;
     playerPos.y = 400;
+    boss_spawned = false;
   }
 }
 

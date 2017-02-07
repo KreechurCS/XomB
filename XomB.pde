@@ -13,7 +13,7 @@ void setup()
       ammoLevel = row.getInt("ammo");
       damageLevel = row.getInt("damage");
       fireRateLevel = row.getInt("firerate");
-      xp = row.getInt("experience");
+      totalXP = row.getInt("experience");
     }
 }
 
@@ -188,6 +188,11 @@ void draw()
   
   else if (gameState == 3)
   {
+    table.setInt(0, 0, ammoLevel);
+    table.setInt(0, 1, damageLevel);
+    table.setInt(0, 2, fireRateLevel);
+    table.setInt(0, 3, totalXP);
+    saveTable(table, "data/upgrades.csv");
     exit();
   }
   println(xp);

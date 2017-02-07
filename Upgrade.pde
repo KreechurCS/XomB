@@ -8,6 +8,7 @@ class Upgrade
     UpgradeButton upgradeAmmo = new UpgradeButton(440, 300, 1, "Upgrade Ammo");
     UpgradeButton upgradeDamage = new UpgradeButton(440, 400, 2, "Upgrade Damage");
     UpgradeButton upgradeFirerate = new UpgradeButton(440, 500, 3, "Upgrade Firerate");
+    button returning = new button(490, 600, 0, "Main Menu");
   Upgrade()
   {
     
@@ -28,6 +29,8 @@ class Upgrade
     upgradeAmmo.update();
     upgradeDamage.update();
     upgradeFirerate.update();
+    returning.render();
+    returning.update();
     textSize(100);
     text("Upgrades", width/2, 150);
     textSize(50);

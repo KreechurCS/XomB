@@ -18,6 +18,8 @@ class Zombie extends Enemy
     strokeWeight(1);
     stroke(0);
     rect(-25,-25, 50, 50);
+    rect(10,-25,10,-15);
+    rect(-10,-25,-10,-15);
     popMatrix();
     
   }

@@ -1,3 +1,4 @@
+boolean canBuy = false;
 class UpgradeButton
 {
   int buttonX;
@@ -18,7 +19,7 @@ class UpgradeButton
   
   void render()
   {
-    if (mouseX > buttonX && mouseY > buttonY && mouseX < buttonX + 300 && mouseY < buttonY + 50)
+    if (mouseX > buttonX && mouseY > buttonY && mouseX < buttonX + 400 && mouseY < buttonY + 50)
   {
      buttonCol = color(255,0,0,150);
   }
@@ -39,32 +40,31 @@ class UpgradeButton
   {
     if(upgradeType == 1 && totalXP >= (baseCost + (50 * ammoLevel)))
     {
-      if (mousePressed)
-      {
-        ammoLevel++;
-        totalXP -= (baseCost + (50 * ammoLevel));
-      }
-    }
-    else if(upgradeType == 2 && totalXP >= (baseCost + (50 * damageLevel)))
-    {
-      if (mousePressed)
-      {
-        ammoLevel++;
-        totalXP -= (baseCost + (50 * damageLevel));
-      }
-    }
-    else if(upgradeType == 3 && totalXP >= (baseCost + (50 * healthLevel)))
-    {
-      if (mousePressed)
+      if (mouseX > buttonX && mouseY > buttonY && mouseX < buttonX + 400 && mouseY < buttonY + 50 && mousePressed && canBuy == true)
       {
         ammoLevel++;
         totalXP -= (baseCost + (50 * healthLevel));
       }
     }
-    
-    if (mouseX > buttonX && mouseY > buttonY && mouseX < buttonX + 300 && mouseY < buttonY + 50)
+    else if(upgradeType == 2 && totalXP >= (baseCost + (50 * damageLevel)) && mousePressed)
     {
+      if (mouseX > buttonX && mouseY > buttonY && mouseX < buttonX + 400 && mouseY < buttonY + 50 && mousePressed && canBuy == true)
+      {
+        damageLevel++;
+        totalXP -= (baseCost + (50 * healthLevel));
+      }      
+    }
+    else if(upgradeType == 3 && totalXP >= (baseCost + (50 * healthLevel)))
+    {
+      if (mouseX > buttonX && mouseY > buttonY && mouseX < buttonX + 400 && mouseY < buttonY + 50 && mousePressed && canBuy == true)
+    {
+        healthLevel++;
+        totalXP -= (baseCost + (50 * healthLevel));
+    }
+        
       
     }
+    
+    
   }
 }

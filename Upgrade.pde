@@ -35,5 +35,10 @@ class Upgrade
     text("Upgrades", width/2, 150);
     textSize(50);
     text("Experience: "+totalXP, width/2,200);
+    textSize(30);
+    text("Ammo: " + ammoLevel, width/2,230);
+    text("Damage: " + damageLevel, width/2,260); 
+    text("Health: " + healthLevel, width/2, 290);
+    text("Costs = 50 x next level", width/2, 50);
   }
 }

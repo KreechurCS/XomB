@@ -35,6 +35,7 @@ boolean boss_spawned = false;
 int previousScore;
 int ammo;
 int totalXP;
+int buyTimer = 0;
 
 
 Player player1 = new Player(0);
@@ -151,6 +152,8 @@ void draw()
   if (gameState == 0)
   {
     menu();
+    buyTimer = 0;
+    canBuy = false;
     ammo = 100 + (25 * ammoLevel);
     playerHealth = 100 +(25 * healthLevel);
   } 
@@ -184,6 +187,11 @@ void draw()
   } 
   else if(gameState == 2)
   {
+    buyTimer++;
+    if(buyTimer >= 120)
+    {
+      canBuy = true;
+    }
     upgradeMenu.render();
     upgradeMenu.update();
   }

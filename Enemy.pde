@@ -53,7 +53,7 @@ class Enemy extends GameObject
         Bullet b = (Bullet) go;
         if (dist(go.pos.x, go.pos.y, this.pos.x, this.pos.y) < 25)
         {
-          health --;
+          health = (health - 1) - (0.25 * 0.25);
           gameObjects.remove(b);
         }
       }

@@ -37,25 +37,32 @@ class UpgradeButton
   
   void update()
   {
-    if(upgradeType == 1)
+    if(upgradeType == 1 && totalXP >= (baseCost + (50 * ammoLevel)))
     {
-      
+      if (mousePressed)
+      {
+        ammoLevel++;
+        totalXP -= (baseCost + (50 * ammoLevel));
+      }
     }
-    else if(upgradeType == 2)
+    else if(upgradeType == 2 && totalXP >= (baseCost + (50 * damageLevel)))
     {
-      
+      if (mousePressed)
+      {
+        ammoLevel++;
+        totalXP -= (baseCost + (50 * damageLevel));
     }
-    else if(upgradeType == 3)
+    else if(upgradeType == 3 && totalXP >= (baseCost + (50 * fireRateLevel)))
     {
-      
+      if (mousePressed)
+      {
+        ammoLevel++;
+        totalXP -= (baseCost + (50 * fireRateLevel));
     }
     
     if (mouseX > buttonX && mouseY > buttonY && mouseX < buttonX + 300 && mouseY < buttonY + 50)
     {
-      if (mousePressed  && totalXP >= (baseCost + (50 * level)))
-      {
-        level++;
-      }
+      
     }
   }
 }

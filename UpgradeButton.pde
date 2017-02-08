@@ -42,24 +42,27 @@ class UpgradeButton
     {
       if (mouseX > buttonX && mouseY > buttonY && mouseX < buttonX + 400 && mouseY < buttonY + 50 && mousePressed && canBuy == true)
       {
+        totalXP -= (baseCost + (50 * ammoLevel));
         ammoLevel++;
-        totalXP -= (baseCost + (50 * healthLevel));
+        
       }
     }
     else if(upgradeType == 2 && totalXP >= (baseCost + (50 * damageLevel)) && mousePressed)
     {
       if (mouseX > buttonX && mouseY > buttonY && mouseX < buttonX + 400 && mouseY < buttonY + 50 && mousePressed && canBuy == true)
       {
+        
+        totalXP -= (baseCost + (50 * damageLevel));
         damageLevel++;
-        totalXP -= (baseCost + (50 * healthLevel));
       }      
     }
     else if(upgradeType == 3 && totalXP >= (baseCost + (50 * healthLevel)))
     {
       if (mouseX > buttonX && mouseY > buttonY && mouseX < buttonX + 400 && mouseY < buttonY + 50 && mousePressed && canBuy == true)
     {
+      totalXP -= (baseCost + (50 * healthLevel));
         healthLevel++;
-        totalXP -= (baseCost + (50 * healthLevel));
+        
     }
         
       

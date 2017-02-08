@@ -13,3 +13,4 @@ i changed this to a class to fix this. I then added player health as well as a z
 I also added a fast and a tank zombie type in the same way. I then added the delay to the bullets and a reset for when you die.
 Next was the UI and the ammo. I then started working on the Upgrade screen, this reads and writes to a file the players total XP
 and the upgrades they have bought. I then implemented each upgrade and altered the UI.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qJcx8txI0u4" frameborder="0" allowfullscreen></iframe>

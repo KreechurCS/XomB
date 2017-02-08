@@ -8,6 +8,23 @@ class Boss extends Enemy
     this.health = 50;
   }
   
+  void hit()
+  {
+    for(int i = 0 ; i < gameObjects.size() ; i ++)
+    {
+      GameObject go = gameObjects.get(i);
+      if (go instanceof Bullet)
+      {
+        Bullet b = (Bullet) go;
+        if (dist(go.pos.x, go.pos.y, this.pos.x, this.pos.y) < 50)
+        {
+          health = (health - 1) - (0.25 * damageLevel);
+          gameObjects.remove(b);
+        }
+      }
+    }
+  }
+  
   void render()
   {
     pushMatrix();

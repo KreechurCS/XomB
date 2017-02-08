@@ -1,3 +1,8 @@
+#Controls
+W,A,S,D - Move and turn
+Space - shoot
+
+#Description
 I started off doing this assignment by deciding what type of game i was going to make.
 I first decided to do a tower defence(https://github.com/KreechurCS/Tower_Defence_Assignment) game however after running into multiple problems with it
 i decided to scrap the idea after a week. My next idea which is my current assignment was 
